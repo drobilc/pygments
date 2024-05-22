@@ -1,91 +1,59 @@
-Welcome to Pygments
-===================
+Pygments'
+=========
 
-This is the source of Pygments.  It is a **generic syntax highlighter** written
-in Python that supports over 500 languages and text formats, for use in code
-hosting, forums, wikis or other applications that need to prettify source code.
+A modified version of the `Pygments <https://pygments.org/>`__ library
+with custom lexer and styling for the **STG** (Spineless Tagless
+G-machine) language.
 
-Installing
-----------
+Used to render code listings with the
+`minted <https://ctan.org/pkg/minted>`__ LaTeX package in
+`magistrsko_delo </magistrsko_delo>`__.
 
-... works as usual, use ``pip install Pygments`` to get published versions,
-or ``pip install -e .`` to install from a checkout in editable mode.
+Installation
+------------
 
-Documentation
--------------
+To install, make sure git is installed and run the following commands
 
-... can be found online at https://pygments.org/ or created with Sphinx by ::
+.. code:: shell
 
-   tox -e doc
-
-By default, the documentation does not include the demo page, as it requires
-having Docker installed for building Pyodide. To build the documentation with
-the demo page, use ::
-
-   tox -e web-doc
-
-The initial build might take some time, but subsequent ones should be instant
-because of Docker caching.
-
-To view the generated documentation, serve it using Python's ``http.server``
-module (this step is required for the demo to work) ::
-
-   python3 -m http.server --directory doc/_build/html
-
+   git clone https://github.com/drobilc/magistrsko-delo.git
+   cd syntax_highlighting
+   pip install .
 
 Development
 -----------
 
-... takes place on `GitHub <https://github.com/pygments/pygments>`_, where the
-Git repository, tickets and pull requests can be viewed.
+To install the package in editable mode, run ``pip install -e .``
+command.
 
-Continuous testing runs on GitHub workflows:
+Lexer
+~~~~~
 
-.. image:: https://github.com/pygments/pygments/workflows/Pygments/badge.svg
-   :target: https://github.com/pygments/pygments/actions?query=workflow%3APygments
+#. To modify the lexer, edit the
+   ```pygments/lexers/stg.py`` </syntax_highlighting/pygments/lexers/stg.py>`__
+   file.
+#. After making the changes, run ``tox -e mapfiles`` to rebuild the
+   lexer mapping.
+#. Delete the
+   ```magistrsko_delo/_minted-magistrsko_delo`` </magistrsko_delo/_minted-magistrsko_delo>`__
+   directory to remove cached files and rerun the LaTeX compiler to see
+   the changes.
 
-Please read our `Contributing instructions <https://pygments.org/docs/contributing>`_.
+For more information, check out the `Pygments lexer development
+documentation <https://pygments.org/docs/lexerdevelopment/>`__.
 
-Security considerations
------------------------
+Styling
+~~~~~~~
 
-Pygments provides no guarantees on execution time, which needs to be taken
-into consideration when using Pygments to process arbitrary user inputs. For
-example, if you have a web service which uses Pygments for highlighting, there
-may be inputs which will cause the Pygments process to run "forever" and/or use
-significant amounts of memory. This can subsequently be used to perform a
-remote denial-of-service attack on the server if the processes are not
-terminated quickly.
+#. To modify the styling, edit the
+   ```pygments/styles/stgyle.py`` </syntax_highlighting/pygments/styles/stgyle.py>`__
+   file.
+#. After making the changes, run ``tox -e mapfiles`` to rebuild the
+   mappings file.
+#. Delete the
+   ```magistrsko_delo/_minted-magistrsko_delo`` </magistrsko_delo/_minted-magistrsko_delo>`__
+   directory to remove cached files and rerun the LaTeX compiler to see
+   the changes.
 
-Unfortunately, it's practically impossible to harden Pygments itself against
-those issues: Some regular expressions can result in "catastrophic
-backtracking", but other bugs like incorrect matchers can also
-cause similar problems, and there is no way to find them in an automated fashion
-(short of solving the halting problem.) Pygments has extensive unit tests,
-automated randomized testing, and is also tested by `OSS-Fuzz <https://github.com/google/oss-fuzz/tree/master/projects/pygments>`_,
-but we will never be able to eliminate all bugs in this area.
-
-Our recommendations are:
-
-* Ensure that the Pygments process is *terminated* after a reasonably short
-  timeout. In general Pygments should take seconds at most for reasonably-sized
-  input.
-* *Limit* the number of concurrent Pygments processes to avoid oversubscription
-  of resources.
-
-The Pygments authors will treat any bug resulting in long processing times with
-high priority -- it's one of those things that will be fixed in a patch release.
-When reporting a bug where you suspect super-linear execution times, please make
-sure to attach an input to reproduce it.
-
-The authors
------------
-
-Pygments is maintained by **Georg Brandl**, e-mail address *georg*\ *@*\ *python.org*, **Matthäus Chajdas** and **Jean Abou-Samra**.
-
-Many lexers and fixes have been contributed by **Armin Ronacher**, the rest of
-the `Pocoo <https://www.pocoo.org/>`_ team and **Tim Hatch**.
-
-The code is distributed under the BSD 2-clause license.  Contributors making pull
-requests must agree that they are able and willing to put their contributions
-under that license.
+For more information, check out the `Pygments style development
+documentation <https://pygments.org/docs/styledevelopment/>`__.
