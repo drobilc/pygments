@@ -45,6 +45,7 @@ STYLES = {
     'StarofficeStyle': ('pygments.styles.staroffice', 'staroffice', ()),
     'StataDarkStyle': ('pygments.styles.stata_dark', 'stata-dark', ()),
     'StataLightStyle': ('pygments.styles.stata_light', 'stata-light', ()),
+    'StgyleStyle': ('pygments.styles.stgyle', 'stgyle', ()),
     'TangoStyle': ('pygments.styles.tango', 'tango', ()),
     'TracStyle': ('pygments.styles.trac', 'trac', ()),
     'VimStyle': ('pygments.styles.vim', 'vim', ()),

@@ -453,6 +453,7 @@ LEXERS = {
     'SLexer': ('pygments.lexers.r', 'S', ('splus', 's', 'r'), ('*.S', '*.R', '.Rhistory', '.Rprofile', '.Renviron'), ('text/S-plus', 'text/S', 'text/x-r-source', 'text/x-r', 'text/x-R', 'text/x-r-history', 'text/x-r-profile')),
     'SMLLexer': ('pygments.lexers.ml', 'Standard ML', ('sml',), ('*.sml', '*.sig', '*.fun'), ('text/x-standardml', 'application/x-standardml')),
     'SNBTLexer': ('pygments.lexers.minecraft', 'SNBT', ('snbt',), ('*.snbt',), ('text/snbt',)),
+    'STGLexer': ('pygments.lexers.stg', 'STG', ('stg',), ('*.stg',), ()),
     'SarlLexer': ('pygments.lexers.jvm', 'SARL', ('sarl',), ('*.sarl',), ('text/x-sarl',)),
     'SassLexer': ('pygments.lexers.css', 'Sass', ('sass',), ('*.sass',), ('text/x-sass',)),
     'SaviLexer': ('pygments.lexers.savi', 'Savi', ('savi',), ('*.savi',), ()),
