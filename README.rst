@@ -7,7 +7,7 @@ G-machine) language.
 
 Used to render code listings with the
 `minted <https://ctan.org/pkg/minted>`__ LaTeX package in
-`magistrsko_delo </magistrsko_delo>`__.
+`magistrsko_delo <https://github.com/drobilc/magistrsko-delo>`__.
 
 Installation
 ------------
@@ -16,8 +16,8 @@ To install, make sure git is installed and run the following commands
 
 .. code:: shell
 
-   git clone https://github.com/drobilc/magistrsko-delo.git
-   cd syntax_highlighting
+   git clone https://github.com/drobilc/pygments.git
+   cd pygments
    pip install .
 
 Development
@@ -34,8 +34,7 @@ Lexer
    file.
 #. After making the changes, run ``tox -e mapfiles`` to rebuild the
    lexer mapping.
-#. Delete the
-   ```magistrsko_delo/_minted-magistrsko_delo`` </magistrsko_delo/_minted-magistrsko_delo>`__
+#. Delete the ``magistrsko_delo/_minted-magistrsko_delo``
    directory to remove cached files and rerun the LaTeX compiler to see
    the changes.
 
@@ -50,8 +49,7 @@ Styling
    file.
 #. After making the changes, run ``tox -e mapfiles`` to rebuild the
    mappings file.
-#. Delete the
-   ```magistrsko_delo/_minted-magistrsko_delo`` </magistrsko_delo/_minted-magistrsko_delo>`__
+#. Delete the ``magistrsko_delo/_minted-magistrsko_delo``
    directory to remove cached files and rerun the LaTeX compiler to see
    the changes.
 
