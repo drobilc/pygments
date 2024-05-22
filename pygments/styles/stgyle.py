@@ -8,7 +8,7 @@ class StgyleStyle(Style):
     Black and white style inspired by the Pygments bw style. It is meant to be
     used with the stg lexer.
     """
-    name = 'stglye'
+    name = 'stgyle'
 
     styles = {
         Comment:                   "italic #959595",
